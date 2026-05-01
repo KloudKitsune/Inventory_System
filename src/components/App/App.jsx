@@ -1,35 +1,42 @@
-import { useState, useEffect } from "react";
-// import { BrowserRouter, Routes, Route } from "react-router-dom";
-import reactLogo from "../../assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+// import { useState } from "react";
+
+import Header from "../../layout/Header/Header";
+// import Dashboard from "./pages/Dashboard/Dashboard";
+// import Inventory from "./pages/Inventory/Inventory";
+// import Settings from "./pages/Settings/Settings";
+
+// Temporary data (you can move this later)
+const initialInventory = [
+  { id: 1, name: "Fire Alarm Panel", category: "Fire Alarm", quantity: 3 },
+  { id: 2, name: "Security Camera", category: "CCTV", quantity: 12 },
+  { id: 3, name: "Access Reader", category: "Access Control", quantity: 6 },
+];
 
 function App() {
-  const [count, setCount] = useState(0);
+  // 🔥 Global inventory state
+  // const [items, setItems] = useState(initialInventory);
+
+  // ➕ Add item function
+  // const addItem = (newItem) => {
+  //   setItems([...items, { ...newItem, id: Date.now() }]);
+  // };
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <BrowserRouter>
+      <Header />
+
+      <Routes>
+        {/* <Route path="/" element={<Dashboard />} /> */}
+
+        <Route
+          path="/inventory"
+          // element={<Inventory items={items} addItem={addItem} />}
+        />
+
+        {/* <Route path="/settings" element={<Settings />} /> */}
+      </Routes>
+    </BrowserRouter>
   );
 }
 
