@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 // import { useState } from "react";
 
 import Header from "../../layout/Header/Header";
+import Sidebar from "../../layout/SideBar/SideBar";
 // import Dashboard from "./pages/Dashboard/Dashboard";
 // import Inventory from "./pages/Inventory/Inventory";
 // import Settings from "./pages/Settings/Settings";
@@ -26,16 +27,15 @@ function App() {
     <BrowserRouter>
       <Header />
 
-      <Routes>
-        {/* <Route path="/" element={<Dashboard />} /> */}
+      <div className="app">
+        <Sidebar />
 
-        <Route
-          path="/inventory"
-          // element={<Inventory items={items} addItem={addItem} />}
-        />
-
-        {/* <Route path="/settings" element={<Settings />} /> */}
-      </Routes>
+        <div className="content">
+          <Routes>
+            <Route path="/inventory" />
+          </Routes>
+        </div>
+      </div>
     </BrowserRouter>
   );
 }

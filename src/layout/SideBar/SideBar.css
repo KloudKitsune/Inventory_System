@@ -1,0 +1,182 @@
+/* .app {
+  display: flex;
+}
+
+.sidebar {
+  width: 200px;
+  height: 100vh;
+  background: #0f172a;
+  color: white;
+  padding: 0;
+  padding: 20px;
+}
+
+.sidebar_components {
+  background-color: #0f172a;
+  padding: 15px;
+  border-radius: 10px, 1px, black;
+  padding: 10px;
+  text-align: center;
+
+  list-style: none;
+  margin: 0;
+}
+
+.content {
+  flex: 1;
+  padding: 20px;
+} */
+
+:root {
+  /* Light */
+  /* /* --surface: #ffffff; */
+  --surface-alt: #0f172a; */
+  --text: #525252;
+  --text-strong: #111827;
+  --primary: #000;
+  --outline: #0f172a;
+
+  /* Dark */
+  --surface-dark: #0a0a0a;
+  --surface-dark-alt: #171717;
+  --text-dark: #d4d4d4;
+  --text-dark-strong: #fff;
+}
+
+/* Layout */
+.layout {
+  display: flex;
+  height: 100vh;
+  position: relative;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 200px;
+  background: var(--surface-alt);
+  border-right: 1px solid var(--outline);
+  padding: 16px;
+  position: fixed;
+  height: 100%;
+  transform: translateX(-100%);
+  transition: 0.3s;
+  z-index: 20;
+  
+}
+
+.sidebar.open {
+  transform: translateX(0);
+}
+
+/* Logo */
+.logo {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+/* Search */
+.search {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 16px;
+}
+
+/* Links */
+.links a {
+  display: block;
+  padding: 8px;
+  border-radius: 6px;
+  text-decoration: none;
+  color: var(--text);
+  
+}
+
+.links a:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+/* Sections */
+.section {
+  margin-top: 12px;
+  
+}
+
+.section-title {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.section ul {
+  padding-left: 12px;
+  border-left: 1px solid var(--outline);
+  list-style: none;
+
+  
+}
+
+.section li {
+  padding: 6px 0;
+}
+
+/* Tags */
+.tag {
+  font-size: 10px;
+  margin-left: 6px;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.info {
+  background: #e0f2fe;
+}
+.success {
+  background: #dcfce7;
+}
+.warning {
+  background: #fef3c7;
+}
+.danger {
+  background: #fee2e2;
+}
+
+/* Content */
+.content {
+  flex: 1;
+  margin-left: 0;
+  padding: 20px;
+  width: 100%;
+}
+
+/* Toggle */
+.toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 30;
+  padding: 10px;
+}
+
+/* Overlay */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.2);
+  z-index: 10;
+}
+
+/* Desktop behavior */
+@media (min-width: 768px) {
+  .sidebar {
+    transform: translateX(0);
+    position: relative;
+  }
+
+  .content {
+    margin-left: 260px;
+  }
+
+  .toggle {
+    display: none;
+  }
+}
