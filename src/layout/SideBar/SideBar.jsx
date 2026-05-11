@@ -1,25 +1,49 @@
-// import "./SideBar.css";
-
-// export default function Sidebar() {
-//   return (
-//     <div className="sidebar">
-//       <nav>
-//         <ul className="sidebar_components">
-//           <li>Dashboard</li>
-//           <li>Inventory</li>
-//           <li>Categories</li>
-//           <li>Settings</li>
-//         </ul>
-//       </nav>
-//     </div>
-//   );
-// }
-
 import { useState } from "react";
 import "./SideBar.css";
 
 export default function Sidebar() {
   const [showSidebar, setShowSidebar] = useState(false);
+
+  // ✅ Each section tracks its own open/close state
+  const [openSections, setOpenSections] = useState({});
+
+  const sections = [
+    {
+      id: "inventory",
+      title: "Inventory",
+      items: ["Overview", "Low Stock", "Out of Stock", "Categories", "Vendors"],
+    },
+    {
+      id: "projects",
+      title: "Projects",
+      items: [
+        "Active Projects",
+        "Labor & Costs",
+        "Quotes / Estimates",
+        "Completed Projects",
+      ],
+    },
+    {
+      id: "purchasing",
+      title: "Purchasing",
+      items: ["Purchase Orders", "Incoming Inventory", "Receipts / Invoices"],
+    },
+    {
+      id: "reports",
+      title: "Reports",
+      items: [
+        "Inventory Value",
+        "Usage Reports",
+        "Most Used Items",
+        "Cost Analysis",
+      ],
+    },
+    {
+      id: "settings",
+      title: "Settings",
+      items: ["Users", "Warehouse Info", "Preferences"],
+    },
+  ];
 
   return (
     <div className="layout">
@@ -35,46 +59,36 @@ export default function Sidebar() {
         {/* Search */}
         <input className="search" placeholder="Search..." />
 
-        {/* Links */}
+        {/* Static Links */}
         <div className="links">
           <a href="#">Dashboard</a>
-          <a href="#">Settings</a>
 
-          <div className="section">
-            <span className="section-title">Get Started</span>
-            <ul>
-              <li>Overview</li>
-              <li>API Authentication</li>
-              <li>Rate Limiting</li>
-            </ul>
-          </div>
+          {/* Dynamic Sections */}
+          {sections.map((section) => (
+            <div className="section" key={section.id}>
+              <button
+                className="section-title"
+                onClick={() =>
+                  setOpenSections((prev) => ({
+                    ...prev,
+                    [section.id]: !prev[section.id],
+                  }))
+                }
+              >
+                <span>
+                  {openSections[section.id] ? "▼" : "▶"} {section.title}
+                </span>
+              </button>
 
-          <div className="section">
-            <span className="section-title">Endpoints</span>
-            <ul>
-              <li>
-                Create User <span className="tag info">POST</span>
-              </li>
-              <li>
-                Get User <span className="tag success">GET</span>
-              </li>
-              <li>
-                Update User <span className="tag warning">PUT</span>
-              </li>
-              <li>
-                Delete User <span className="tag danger">DELETE</span>
-              </li>
-            </ul>
-          </div>
-
-          <div className="section">
-            <span className="section-title">Authentication</span>
-            <ul>
-              <li>API Keys</li>
-              <li>OAuth 2.0</li>
-              <li>JWT Tokens</li>
-            </ul>
-          </div>
+              {openSections[section.id] && (
+                <ul>
+                  {section.items.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          ))}
         </div>
       </nav>
 
