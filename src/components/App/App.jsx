@@ -3,11 +3,11 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Header from "../../layout/Header/Header";
 import Sidebar from "../../layout/SideBar/SideBar";
-// import Dashboard from "./pages/Dashboard/Dashboard";
-// import Inventory from "./pages/Inventory/Inventory";
-// import Settings from "./pages/Settings/Settings";
 
-// Temporary data (you can move this later)
+// ✅ Correct import path
+import Dashboard from "../pages/Dashboard/Dashboard";
+
+// Temporary data
 const initialInventory = [
   { id: 1, name: "Fire Alarm Panel", category: "Fire Alarm", quantity: 3 },
   { id: 2, name: "Security Camera", category: "CCTV", quantity: 12 },
@@ -15,24 +15,23 @@ const initialInventory = [
 ];
 
 function App() {
-  // 🔥 Global inventory state
-  // const [items, setItems] = useState(initialInventory);
-
-  // ➕ Add item function
-  // const addItem = (newItem) => {
-  //   setItems([...items, { ...newItem, id: Date.now() }]);
-  // };
-
   return (
     <BrowserRouter>
+      {/* Header stays on top */}
       <Header />
 
       <div className="app">
+        {/* Sidebar */}
         <Sidebar />
 
+        {/* Main page content */}
         <div className="content">
           <Routes>
-            <Route path="/inventory" />
+            {/* Home route */}
+            <Route path="/" element={<Dashboard />} />
+
+            {/* Inventory route */}
+            <Route path="/inventory" element={<Dashboard />} />
           </Routes>
         </div>
       </div>

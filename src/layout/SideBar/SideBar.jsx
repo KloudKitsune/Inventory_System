@@ -46,7 +46,7 @@ export default function Sidebar() {
   ];
 
   return (
-    <div className="layout">
+    <>
       {/* Overlay */}
       {showSidebar && (
         <div className="overlay" onClick={() => setShowSidebar(false)} />
@@ -54,7 +54,7 @@ export default function Sidebar() {
 
       {/* Sidebar */}
       <nav className={`sidebar ${showSidebar ? "open" : ""}`}>
-        <h2 className="logo">Inventoria</h2>
+        {/* <h2 className="logo">Inventoria</h2> */}
 
         {/* Search */}
         <input className="search" placeholder="Search..." />
@@ -92,15 +92,10 @@ export default function Sidebar() {
         </div>
       </nav>
 
-      {/* Main Content */}
-      <main className="content">
-        <h1>Main Content</h1>
-      </main>
-
       {/* Toggle Button */}
       <button className="toggle" onClick={() => setShowSidebar(!showSidebar)}>
         ☰
       </button>
-    </div>
+    </>
   );
 }

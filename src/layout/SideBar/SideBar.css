@@ -51,7 +51,7 @@
 
 /* Sidebar */
 .sidebar {
-  width: 200px;
+  width: 180px;
   background: var(--surface-alt);
   border-right: 1px solid var(--outline);
   padding: 16px;
@@ -155,9 +155,9 @@
 /* Content */
 .content {
   flex: 1;
-  margin-left: 0;
-  padding: 20px;
-  width: 100%;
+  padding: 20px, 0;
+  margin-left: 200px;
+  min-height: 100vh;
 }
 
 /* Toggle */
@@ -181,11 +181,11 @@
 @media (min-width: 768px) {
   .sidebar {
     transform: translateX(0);
-    position: relative;
+    position: fixed;
   }
 
   .content {
-    margin-left: 260px;
+    margin-left: 180px;
   }
 
   .toggle {
