@@ -9,14 +9,14 @@ function Header() {
   }, []);
   return (
     <header className="header">
-      <div className="header__logo">
+      {/* <div className="header__logo">
         <img
           src={inventoriaLogo}
           alt="Inventoria logo"
           className="header__logo-img"
         />
         <h1>Inventoria</h1>
-      </div>
+      </div> */}
 
       <nav className="header__nav">
         <a href="/" className="header__link">

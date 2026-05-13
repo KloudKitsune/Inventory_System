@@ -1,4 +1,6 @@
 import { useState } from "react";
+import inventoriaLogo from "../../assets/inventoria.svg";
+
 import "./SideBar.css";
 
 export default function Sidebar() {
@@ -55,6 +57,15 @@ export default function Sidebar() {
       {/* Sidebar */}
       <nav className={`sidebar ${showSidebar ? "open" : ""}`}>
         {/* <h2 className="logo">Inventoria</h2> */}
+
+        <div className="sidebar__logo">
+          <img
+            src={inventoriaLogo}
+            alt="Inventoria logo"
+            className="sidebar__logo-img"
+          />
+          <h1>Inventoria</h1>
+        </div>
 
         {/* Search */}
         <input className="search" placeholder="Search..." />
