@@ -111,17 +111,27 @@
   font-weight: 600;
 }
 
-.in-stock {
+.status-active {
   background: rgba(34, 197, 94, 0.15);
   color: #22c55e;
 }
 
-.low-stock {
-  background: rgba(245, 158, 11, 0.15);
-  color: #f59e0b;
-}
-
-.out-stock {
+.status-delayed {
   background: rgba(239, 68, 68, 0.15);
   color: #ef4444;
+}
+
+/* .out-stock {
+  background: rgba(239, 68, 68, 0.15);
+  color: #ef4444;
+} */
+
+.status-completed {
+  background-color: rgba(0, 255, 221, 0.2);
+  color: #00fff2;
+}
+
+.status-pending {
+  background-color: rgba(245, 158, 11, 0.15);
+  color: #f59e0b;
 }

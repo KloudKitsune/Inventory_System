@@ -71,7 +71,7 @@ export default function Dashboard() {
               <td>Westview Properties</td>
               <td>78%</td>
               <td>
-                <span className="status in-stock">Active</span>
+                <span className="status-active">Active</span>
               </td>
               <td>$145,000</td>
             </tr>
@@ -82,7 +82,7 @@ export default function Dashboard() {
               <td>NorthPoint Logistics</td>
               <td>42%</td>
               <td>
-                <span className="status low-stock">Delayed</span>
+                <span className="status-delayed">Delayed</span>
               </td>
               <td>$62,500</td>
             </tr>
@@ -93,7 +93,7 @@ export default function Dashboard() {
               <td>Suncoast Retail Group</td>
               <td>100%</td>
               <td>
-                <span className="status completed">Completed</span>
+                <span className="status-completed">Completed</span>
               </td>
               <td>$89,300</td>
             </tr>
@@ -104,7 +104,7 @@ export default function Dashboard() {
               <td>Bayline Medical Center</td>
               <td>65%</td>
               <td>
-                <span className="status in-stock">Active</span>
+                <span className="status-active">Active</span>
               </td>
               <td>$210,000</td>
             </tr>
@@ -115,7 +115,7 @@ export default function Dashboard() {
               <td>Harbor Industrial</td>
               <td>15%</td>
               <td>
-                <span className="status pending">Pending</span>
+                <span className="status-pending">Pending</span>
               </td>
               <td>$34,900</td>
             </tr>
