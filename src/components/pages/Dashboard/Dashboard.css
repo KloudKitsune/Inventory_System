@@ -57,6 +57,14 @@
 
   color: white;
   font-size: 15px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.dashboard__search input:focus,
+.dashboard__search input:focus-visible {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
 }
 
 .dashboard__actions {
@@ -76,6 +84,14 @@
   border-radius: 12px;
 
   cursor: pointer;
+  transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.dashboard__actions button:focus,
+.dashboard__actions button:focus-visible {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
 }
 
 .inventory-table {

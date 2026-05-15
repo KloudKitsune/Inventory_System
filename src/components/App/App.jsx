@@ -1,8 +1,8 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-// import { useState } from "react";
+import { Routes, Route } from "react-router-dom";
 
 import Header from "../../layout/Header/Header";
 import Sidebar from "../../layout/SideBar/SideBar";
+import Inventory from "../pages/Inventory/Inventory";
 
 // ✅ Correct import path
 import Dashboard from "../pages/Dashboard/Dashboard";
@@ -16,7 +16,7 @@ const initialInventory = [
 
 function App() {
   return (
-    <BrowserRouter>
+    <>
       {/* Header stays on top */}
       <Header />
 
@@ -31,11 +31,11 @@ function App() {
             <Route path="/" element={<Dashboard />} />
 
             {/* Inventory route */}
-            <Route path="/inventory" element={<Dashboard />} />
+            <Route path="/inventory" element={<Inventory />} />
           </Routes>
         </div>
       </div>
-    </BrowserRouter>
+    </>
   );
 }
 

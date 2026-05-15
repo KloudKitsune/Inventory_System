@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import "./Header.css";
-// import { NavLink } from "react-router-dom";
-import inventoriaLogo from "../../assets/inventoria.svg";
+import { NavLink } from "react-router-dom";
+// import inventoriaLogo from "../../assets/inventoria.svg";
 
 function Header() {
   useEffect(() => {
@@ -19,15 +19,15 @@ function Header() {
       </div> */}
 
       <nav className="header__nav">
-        <a href="/" className="header__link">
+        <NavLink to="/" className="header__link">
           Dashboard
-        </a>
-        <a href="/inventory" className="header__link">
+        </NavLink>
+        <NavLink to="/inventory" className="header__link">
           Inventory
-        </a>
-        <a href="/settings" className="header__link">
+        </NavLink>
+        <NavLink to="/settings" className="header__link">
           Settings
-        </a>
+        </NavLink>
       </nav>
 
       <div className="header__actions">

@@ -15,18 +15,6 @@
   color: white;
 }
 
-.header__actions {
-  display: flex;
-  gap: 12px;
-
-  flex: 0 0 auto; /* NEVER shrink */
-  margin-left: auto; /* forces it right */
-
-  /* position: relative;
-  z-index: 9999;
-  background: red; */
-}
-
 .header__logo {
   display: flex;
   align-items: center;
@@ -57,15 +45,26 @@
   text-decoration: none;
   font-size: 14px;
   transition: color 0.2s;
+  border-radius: 4px;
+  padding: 6px 8px;
 }
 
 .header__link:hover {
   color: white;
 }
 
+.header__link:focus,
+.header__link:focus-visible {
+  outline: none;
+  background-color: rgba(59, 130, 246, 0.2);
+  color: white;
+}
+
 .header__actions {
   display: flex;
   gap: 12px;
+  flex: 0 0 auto;
+  margin-left: auto;
 }
 
 .header__button {
@@ -76,10 +75,17 @@
   color: white;
   cursor: pointer;
   font-size: 14px;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .header__button:hover {
   background-color: #2563eb;
+}
+
+.header__button:focus,
+.header__button:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
 }
 
 .header__button--secondary {
@@ -89,4 +95,11 @@
 
 .header__button--secondary:hover {
   background-color: #1e293b;
+}
+
+.header__button--secondary:focus,
+.header__button--secondary:focus-visible {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
 }

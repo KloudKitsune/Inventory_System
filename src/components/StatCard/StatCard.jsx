@@ -1,5 +1,13 @@
 import "./StatCard.css";
 
+/**
+ * StatCard Component
+ * @param {string} icon - Icon to display
+ * @param {string} title - Title of the stat
+ * @param {string | number} value - Main value to display
+ * @param {string} change - Change text
+ * @param {boolean} positive - Whether the change is positive
+ */
 export default function StatCard({ icon, title, value, change, positive }) {
   return (
     <div className="stat-card">
