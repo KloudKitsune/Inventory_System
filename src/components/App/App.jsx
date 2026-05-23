@@ -1,10 +1,15 @@
+import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 
 import Header from "../../layout/Header/Header";
 import Sidebar from "../../layout/SideBar/SideBar";
 import Inventory from "../pages/Inventory/Inventory";
 
-// ✅ Correct import path
+// Modals
+import RegisterModal from "../auth/RegisterModal/RegisterModal";
+import LoginModal from "../auth/LoginModal/LoginModal";
+
+// Dashboard
 import Dashboard from "../pages/Dashboard/Dashboard";
 
 // Temporary data
@@ -15,10 +20,27 @@ const initialInventory = [
 ];
 
 function App() {
+  const [activeModal, setActiveModal] = useState("login");
+  // "login" | "register" | null
+
   return (
     <>
       {/* Header stays on top */}
       <Header />
+
+      {activeModal === "login" && (
+        <LoginModal
+          onClose={() => setActiveModal(null)}
+          onSwitchToRegister={() => setActiveModal("register")}
+        />
+      )}
+
+      {activeModal === "register" && (
+        <RegisterModal
+          onClose={() => setActiveModal(null)}
+          onSwitchToLogin={() => setActiveModal("login")}
+        />
+      )}
 
       <div className="app">
         {/* Sidebar */}

@@ -43,12 +43,13 @@ export default function Dashboard() {
       <div className="dashboard__panel">
         <div className="dashboard__panel-header">
           <div className="dashboard__search">
-            <input type="text" placeholder="Search projects..." />
+            {/* PENDING */}
+            {/* <input type="text" placeholder="Search projects..." /> */}
           </div>
 
           <div className="dashboard__actions">
-            <button>Filters</button>
-            <button>Export</button>
+            {/* <button>Filters</button>
+            <button>Export</button> */}
           </div>
         </div>
 

@@ -68,7 +68,8 @@ export default function Sidebar() {
         </div>
 
         {/* Search */}
-        <input className="search" placeholder="Search..." />
+        {/* PENDING */}
+        {/* <input className="search" placeholder="Search..." /> */}
 
         {/* Static Links */}
         <div className="links">

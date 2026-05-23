@@ -1,18 +1,27 @@
 .header {
   display: flex;
+  justify-content: flex-end;
   align-items: center;
-  justify-content: space-between;
 
   position: fixed;
   top: 0;
   left: 200px;
   right: 0;
+
   height: 60px;
-  z-index: 50;
   padding: 0 20px;
   box-sizing: border-box;
+
   background-color: #0f172a;
   color: white;
+
+  z-index: 50;
+}
+
+.header__right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
 .header__logo {
@@ -28,29 +37,39 @@
 }
 
 .header__logo-img {
-  width: 32px;
-  height: 32px;
+  width: 24px;
+  height: 24px;
+  display: block;
+  margin: auto;
+  transform: translateX(1px);
 }
 
 .header__nav {
   display: flex;
-  gap: 150px;
-  flex: 1;
-  justify-content: center;
-  min-width: 0;
+  align-items: center;
+  gap: 12px;
 }
 
 .header__link {
-  color: #cbd5f5;
-  text-decoration: none;
-  font-size: 14px;
-  transition: color 0.2s;
-  border-radius: 4px;
-  padding: 6px 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 35px;
+  height: 35px;
+
+  border-radius: 10px;
+
+  transition:
+    background-color 0.2s ease,
+    transform 0.15s ease;
 }
 
 .header__link:hover {
-  color: white;
+  background-color: #1e293b;
+}
+
+.header__link.active {
+  background-color: #2563eb;
 }
 
 .header__link:focus,
@@ -62,9 +81,8 @@
 
 .header__actions {
   display: flex;
+  align-items: center;
   gap: 12px;
-  flex: 0 0 auto;
-  margin-left: auto;
 }
 
 .header__button {
@@ -75,7 +93,9 @@
   color: white;
   cursor: pointer;
   font-size: 14px;
-  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .header__button:hover {
