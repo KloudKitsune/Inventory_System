@@ -24,6 +24,60 @@
   gap: 20px;
 }
 
+.header__profile {
+  position: relative;
+}
+
+.header__avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 16px;
+  background-color: #1f224d;
+  color: #8b5cf6;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+}
+
+.header__dropdown {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  min-width: 140px;
+  border-radius: 8px;
+  padding: 8px;
+  z-index: 100;
+}
+
+.header__dropdown-button {
+  width: 100%;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 6px;
+
+  background-color: #1f224d;
+  color: #8b5cf6;
+
+  font-weight: 600;
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.header__dropdown-button:hover {
+  background-color: #2b2f6b;
+  color: #a78bfa;
+}
+
 .header__logo {
   display: flex;
   align-items: center;

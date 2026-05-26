@@ -73,7 +73,7 @@ export default function Sidebar() {
 
         {/* Static Links */}
         <div className="links">
-          <a href="#">Dashboard</a>
+          <a href="/">Dashboard</a>
 
           {/* Dynamic Sections */}
           {sections.map((section) => (

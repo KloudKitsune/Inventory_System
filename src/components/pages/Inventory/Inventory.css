@@ -27,7 +27,9 @@
   border: 1px solid #334155;
   background-color: #1e293b;
   color: #fff;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .inventory__search:focus,
@@ -45,7 +47,9 @@
   color: white;
   cursor: pointer;
   font-weight: 600;
-  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .inventory__button:focus,
