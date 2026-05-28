@@ -12,6 +12,12 @@ import Inventory from "../pages/Inventory/Inventory";
 // Modals
 import RegisterModal from "../auth/RegisterModal/RegisterModal";
 import LoginModal from "../auth/LoginModal/LoginModal";
+import AddItemModal from "../inventory/AddItemModal/AddItemModal";
+import EditItemModal from "../inventory/EditItemModal/EditItemModal";
+import ConfirmDeleteModal from "../inventory/ConfirmDeleteModal/ConfirmDeleteModal";
+
+// API
+import { getItems, addItem, updateItem, deleteItem } from "../../utils/api";
 
 // Authentication
 import ProtectedRoute from "../../components/auth/ProtectedRoute/ProtectedRoute";
@@ -29,8 +35,15 @@ function App() {
 
   const [currentUser, setCurrentUser] = useState(null); // null when not logged in
   const isLoggedIn = Boolean(currentUser);
-  const shouldShowAuth = !currentUser && activeModal === null;
+  // const shouldShowAuth = !currentUser && activeModal === null;
   const [authChecked, setAuthChecked] = useState(false);
+
+  const [inventoryItems, setInventoryItems] = useState([]);
+
+  const [isLoading, setIsLoading] = useState(true);
+
+  const [selectedItem, setSelectedItem] = useState(null);
+  const [itemToDelete, setItemToDelete] = useState(null);
 
   // Register Function
 
@@ -107,6 +120,66 @@ function App() {
     }
   }, [authChecked, currentUser, activeModal]);
 
+  // Saving inventoryItems to API
+  useEffect(() => {
+    getItems()
+      .then((items) => {
+        setInventoryItems(items);
+      })
+      .catch((err) => {
+        console.error("Failed to load items:", err);
+      });
+  }, []);
+
+  // Add Item
+  function handleAddItem(newItem) {
+    addItem(newItem)
+      .then((savedItem) => {
+        setInventoryItems((prev) => [...prev, savedItem]);
+        setActiveModal(null);
+      })
+      .catch((err) => console.error(err));
+  }
+
+  // Confirm Delete Modal
+
+  function handleOpenDeleteModal(item) {
+    setItemToDelete(item);
+    setActiveModal("confirm-delete");
+  }
+
+  function handleConfirmDelete() {
+    deleteItem(itemToDelete.id)
+      .then(() => {
+        setInventoryItems((prevItems) =>
+          prevItems.filter((item) => item.id !== itemToDelete.id),
+        );
+
+        setItemToDelete(null);
+        setActiveModal(null);
+      })
+      .catch((err) => console.error(err));
+  }
+
+  // Edit Item
+  function handleEditItem(updatedItem) {
+    updateItem(updatedItem)
+      .then((savedItem) => {
+        setInventoryItems((prev) =>
+          prev.map((item) => (item.id === savedItem.id ? savedItem : item)),
+        );
+
+        setActiveModal(null);
+        setSelectedItem(null);
+      })
+      .catch((err) => console.error(err));
+  }
+
+  function handleOpenEditModal(item) {
+    setSelectedItem(item);
+    setActiveModal("edit-item");
+  }
+
   return (
     <>
       {/* Header stays on top */}
@@ -114,6 +187,7 @@ function App() {
         currentUser={currentUser}
         onLogout={handleLogout}
         onOpenLogin={() => setActiveModal("login")}
+        onAddItem={() => setActiveModal("add-item")}
       />
 
       {activeModal === "login" && (
@@ -135,6 +209,26 @@ function App() {
         />
       )}
 
+      <AddItemModal
+        activeModal={activeModal}
+        onClose={() => setActiveModal(null)}
+        onAddItem={handleAddItem}
+      />
+
+      <EditItemModal
+        activeModal={activeModal}
+        onClose={() => setActiveModal(null)}
+        onEditItem={handleEditItem}
+        selectedItem={selectedItem}
+      />
+
+      <ConfirmDeleteModal
+        activeModal={activeModal}
+        onClose={() => setActiveModal(null)}
+        onConfirmDelete={handleConfirmDelete}
+        itemToDelete={itemToDelete}
+      />
+
       <div className="app">
         {/* Sidebar */}
         <Sidebar />
@@ -143,10 +237,34 @@ function App() {
         <div className="content">
           <Routes>
             {/* Home route */}
-            <Route path="/" element={<Dashboard />} />
+            <Route
+              path="/"
+              element={
+                <ProtectedRoute
+                  isLoggedIn={isLoggedIn}
+                  authChecked={authChecked}
+                >
+                  <Dashboard />
+                </ProtectedRoute>
+              }
+            />
 
             {/* Inventory route */}
-            <Route path="/inventory" element={<Inventory />} />
+            <Route
+              path="/inventory"
+              element={
+                <ProtectedRoute
+                  isLoggedIn={isLoggedIn}
+                  authChecked={authChecked}
+                >
+                  <Inventory
+                    inventoryItems={inventoryItems}
+                    onDeleteItem={handleOpenDeleteModal}
+                    onEditItem={handleOpenEditModal}
+                  />
+                </ProtectedRoute>
+              }
+            />
           </Routes>
         </div>
       </div>

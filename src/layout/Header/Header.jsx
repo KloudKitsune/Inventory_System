@@ -4,9 +4,9 @@ import { NavLink } from "react-router-dom";
 
 import home from "../../assets/home.svg";
 import inventory from "../../assets/inventory.svg";
-import settings from "../../assets/settings.svg";
+// import settings from "../../assets/settings.svg";
 
-function Header({ currentUser, onLogout, onOpenLogin }) {
+function Header({ currentUser, onLogout, onOpenLogin, onAddItem }) {
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   useEffect(() => {
@@ -39,17 +39,20 @@ function Header({ currentUser, onLogout, onOpenLogin }) {
             />
           </NavLink>
 
-          <NavLink to="/settings" className="header__link">
+          {/* UNDER CONSTRUCTION */}
+          {/* <NavLink to="/settings" className="header__link">
             <img
               src={settings}
               alt="Settings logo"
               className="header__logo-img"
             />
-          </NavLink>
+          </NavLink> */}
         </nav>
 
         <div className="header__actions">
-          <button className="header__button">+ Add Item</button>
+          <button className="header__button" onClick={onAddItem}>
+            + Add Item
+          </button>
 
           {!currentUser ? (
             <button

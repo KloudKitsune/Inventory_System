@@ -1,4 +1,5 @@
 import "./ModalWithForm.css";
+import { useEffect } from "react";
 import closebtn from "../../assets/closeicon-white.svg";
 
 function ModalWithForm({
@@ -13,10 +14,27 @@ function ModalWithForm({
   buttonGroupVariant,
   submitButtonClass = "",
 }) {
+  useEffect(() => {
+    function handleEscClose(evt) {
+      if (evt.key === "Escape") {
+        onClose();
+      }
+    }
+
+    if (isOpen) {
+      document.addEventListener("keydown", handleEscClose);
+    }
+
+    return () => {
+      document.removeEventListener("keydown", handleEscClose);
+    };
+  }, [isOpen, onClose]);
+
   return (
-    <div className={`modal ${isOpen ? "modal_opened" : ""}`}>
-      <div className="modal__content">
+    <div className={`modal ${isOpen ? "modal_opened" : ""}`} onClick={onClose}>
+      <div className="modal__content" onClick={(e) => e.stopPropagation()}>
         <h2 className="modal__title">{title}</h2>
+
         <button onClick={onClose} type="button" className="modal__close">
           <img src={closebtn} alt="close" />
         </button>

@@ -18,6 +18,7 @@
 
 .inventory__actions {
   display: flex;
+  align-items: center;
   gap: 12px;
 }
 
@@ -84,6 +85,35 @@
 
 .inventory__table tr {
   border-bottom: 1px solid #1e293b;
+}
+
+.inventory__delete-button {
+  opacity: 0;
+  pointer-events: none;
+
+  transition: opacity 0.2s ease;
+
+  border: 2px solid white;
+  background-color: #3b82f6;
+  color: white;
+
+  padding: 6px 10px;
+  border-radius: 6px;
+
+  cursor: pointer;
+}
+
+.inventory__edit-button,
+.inventory__delete-button {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.inventory__row:hover .inventory__edit-button,
+.inventory__row:hover .inventory__delete-button {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .inventory__status {
