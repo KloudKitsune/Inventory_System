@@ -44,3 +44,9 @@
 .read-the-docs {
   color: #888;
 }
+
+@media (max-width: 768px) {
+  .app {
+    flex-direction: column;
+  }
+}

@@ -40,7 +40,7 @@ function App() {
 
   const [inventoryItems, setInventoryItems] = useState([]);
 
-  const [isLoading, setIsLoading] = useState(true);
+  // const [isLoading, setIsLoading] = useState(true);
 
   const [selectedItem, setSelectedItem] = useState(null);
   const [itemToDelete, setItemToDelete] = useState(null);
