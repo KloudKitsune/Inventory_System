@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
 import inventoriaLogo from "../../assets/inventoria.svg";
 
 import "./SideBar.css";
@@ -73,7 +74,7 @@ export default function Sidebar() {
 
         {/* Static Links */}
         <div className="links">
-          <a href="/">Dashboard</a>
+          <NavLink to="/">Dashboard</NavLink>
 
           {/* Dynamic Sections */}
           {sections.map((section) => (
