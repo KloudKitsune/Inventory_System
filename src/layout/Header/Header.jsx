@@ -27,11 +27,21 @@ function Header({ currentUser, onLogout, onOpenLogin, onAddItem }) {
     <header className="header">
       <div className="header__right">
         <nav className="header__nav">
-          <NavLink to="/" className="header__link">
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              `header__link${isActive ? " header__link--active" : ""}`
+            }
+          >
             <img src={home} alt="Home logo" className="header__logo-img" />
           </NavLink>
 
-          <NavLink to="/inventory" className="header__link">
+          <NavLink
+            to="/inventory"
+            className={({ isActive }) =>
+              `header__link${isActive ? " header__link--active" : ""}`
+            }
+          >
             <img
               src={inventory}
               alt="Inventory logo"

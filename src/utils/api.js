@@ -5,7 +5,12 @@ const handleResponse = (res) =>
 
 // GET all items
 export const getItems = () => {
-  return fetch(`${baseUrl}/items`).then(handleResponse);
+  return fetch(`${baseUrl}/items`)
+    .then(handleResponse)
+    .catch((err) => {
+      console.error("Failed to fetch items:", err);
+      throw err;
+    });
 };
 
 // CREATE item
@@ -14,21 +19,36 @@ export const addItem = (item) => {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(item),
-  }).then(handleResponse);
+  })
+    .then(handleResponse)
+    .catch((err) => {
+      console.error("Failed to add item:", err);
+      throw err;
+    });
 };
 
 // UPDATE item
 export const updateItem = (item) => {
   return fetch(`${baseUrl}/items/${item.id}`, {
-    method: "PUT",
+    method: "PATCH",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(item),
-  }).then(handleResponse);
+  })
+    .then(handleResponse)
+    .catch((err) => {
+      console.error("Failed to update item:", err);
+      throw err;
+    });
 };
 
 // DELETE item
 export const deleteItem = (id) => {
   return fetch(`${baseUrl}/items/${id}`, {
     method: "DELETE",
-  }).then(handleResponse);
+  })
+    .then(handleResponse)
+    .catch((err) => {
+      console.error("Failed to delete item:", err);
+      throw err;
+    });
 };

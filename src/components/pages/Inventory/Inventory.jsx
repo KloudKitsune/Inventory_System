@@ -39,17 +39,17 @@ export default function Inventory({
           <tbody>
             {inventoryItems.map((item) => (
               <tr key={item.id} className="inventory__row">
-                <td>{item.product}</td>
+                <td data-label="Product">{item.product}</td>
 
-                <td>{item.manufacturer}</td>
+                <td data-label="Manufacturer">{item.manufacturer}</td>
 
-                <td>{item.sku}</td>
+                <td data-label="SKU">{item.sku}</td>
 
-                <td>{item.model}</td>
+                <td data-label="Model">{item.model}</td>
 
-                <td>{item.stock}</td>
+                <td data-label="Stock">{item.stock}</td>
 
-                <td>
+                <td data-label="Status">
                   <span
                     className={`inventory__status ${
                       item.stock <= 0
@@ -67,7 +67,7 @@ export default function Inventory({
                   </span>
                 </td>
 
-                <td className="inventory__actions">
+                <td className="inventory__row-actions" data-label="Actions">
                   <button
                     className="inventory__edit-button"
                     onClick={() => onEditItem(item)}

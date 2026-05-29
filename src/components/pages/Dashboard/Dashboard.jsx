@@ -53,7 +53,7 @@ export default function Dashboard() {
           </div>
         </div>
 
-        <table className="inventory-table">
+        <table className="dashboard__table">
           <thead>
             <tr>
               <th>Project</th>
@@ -67,58 +67,58 @@ export default function Dashboard() {
 
           <tbody>
             <tr>
-              <td>Downtown Office Buildout</td>
-              <td>PRJ-1042</td>
-              <td>Westview Properties</td>
-              <td>78%</td>
-              <td>
-                <span className="status-active">Active</span>
+              <td data-label="Project">Downtown Office Buildout</td>
+              <td data-label="Project ID">PRJ-1042</td>
+              <td data-label="Client">Westview Properties</td>
+              <td data-label="Progress">78%</td>
+              <td data-label="Status">
+                <span className="status status--active">Active</span>
               </td>
-              <td>$145,000</td>
+              <td data-label="Budget">$145,000</td>
             </tr>
 
             <tr>
-              <td>Warehouse Lighting Upgrade</td>
-              <td>PRJ-1088</td>
-              <td>NorthPoint Logistics</td>
-              <td>42%</td>
-              <td>
-                <span className="status-delayed">Delayed</span>
+              <td data-label="Project">Warehouse Lighting Upgrade</td>
+              <td data-label="Project ID">PRJ-1088</td>
+              <td data-label="Client">NorthPoint Logistics</td>
+              <td data-label="Progress">42%</td>
+              <td data-label="Status">
+                <span className="status status--delayed">Delayed</span>
               </td>
-              <td>$62,500</td>
+              <td data-label="Budget">$62,500</td>
             </tr>
 
             <tr>
-              <td>Retail Store Renovation</td>
-              <td>PRJ-1121</td>
-              <td>Suncoast Retail Group</td>
-              <td>100%</td>
-              <td>
-                <span className="status-completed">Completed</span>
+              <td data-label="Project">Retail Store Renovation</td>
+              <td data-label="Project ID">PRJ-1121</td>
+              <td data-label="Client">Suncoast Retail Group</td>
+              <td data-label="Progress">100%</td>
+              <td data-label="Status">
+                <span className="status status--completed">Completed</span>
               </td>
-              <td>$89,300</td>
+              <td data-label="Budget">$89,300</td>
             </tr>
 
             <tr>
-              <td>HVAC System Replacement</td>
-              <td>PRJ-1150</td>
-              <td>Bayline Medical Center</td>
-              <td>65%</td>
-              <td>
-                <span className="status-active">Active</span>
+              <td data-label="Project">HVAC System Replacement</td>
+              <td data-label="Project ID">PRJ-1150</td>
+              <td data-label="Client">Bayline Medical Center</td>
+              <td data-label="Progress">65%</td>
+              <td data-label="Status">
+                <span className="status status--active">Active</span>
               </td>
-              <td>$210,000</td>
+              <td data-label="Budget">$210,000</td>
             </tr>
 
             <tr>
-              <td>Security Camera Installation</td>
-              <td>PRJ-1164</td>
-              <td>Harbor Industrial</td>
-              <td>15%</td>
-              <td>
-                <span className="status-pending">Pending</span>
+              <td data-label="Project">Security Camera Installation</td>
+              <td data-label="Project ID">PRJ-1164</td>
+              <td data-label="Client">Harbor Industrial</td>
+              <td data-label="Progress">15%</td>
+              <td data-label="Status">
+                <span className="status status--pending">Pending</span>
               </td>
-              <td>$34,900</td>
+              <td data-label="Budget">$34,900</td>
             </tr>
           </tbody>
         </table>

@@ -31,7 +31,7 @@ function ModalWithForm({
   }, [isOpen, onClose]);
 
   return (
-    <div className={`modal ${isOpen ? "modal_opened" : ""}`} onClick={onClose}>
+    <div className={`modal ${isOpen ? "modal--opened" : ""}`} onClick={onClose}>
       <div className="modal__content" onClick={(e) => e.stopPropagation()}>
         <h2 className="modal__title">{title}</h2>
 
@@ -52,7 +52,7 @@ function ModalWithForm({
             <button
               type="submit"
               className={`modal__submit ${submitButtonClass} ${
-                isValid ? "modal__submit_active" : "modal__submit_disabled"
+                isValid ? "modal__submit--active" : "modal__submit--disabled"
               }`}
               disabled={!isValid}
             >

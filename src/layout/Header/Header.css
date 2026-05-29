@@ -122,7 +122,7 @@
   background-color: #1e293b;
 }
 
-.header__link.active {
+.header__link--active {
   background-color: #2563eb;
 }
 
