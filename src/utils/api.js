@@ -30,7 +30,7 @@ export const addItem = (item) => {
 // UPDATE item
 export const updateItem = (item) => {
   return fetch(`${baseUrl}/items/${item.id}`, {
-    method: "PATCH",
+    method: "PUT",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(item),
   })
