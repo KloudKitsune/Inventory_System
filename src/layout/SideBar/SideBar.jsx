@@ -74,7 +74,8 @@ export default function Sidebar() {
 
         {/* Static Links */}
         <div className="links">
-          <NavLink to="/Inventory_System">Dashboard</NavLink>
+          <NavLink to="/">Dashboard</NavLink>
+          <NavLink to="/inventory">Inventory</NavLink>
 
           {/* Dynamic Sections */}
           {sections.map((section) => (
