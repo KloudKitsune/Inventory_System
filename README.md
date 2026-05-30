@@ -1,8 +1,45 @@
-# React + Vite
+# Inventoria
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Inventoria is a simple inventory and project dashboard built with React.  
+It was created as a final project for the TripleTen Software Engineering Bootcamp.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
+
+- Dashboard with inventory stats
+- Sidebar navigation with collapsible sections
+- Responsive design (mobile + desktop)
+- Project table with status labels
+- Clean dark UI
+
+---
+
+## Tech Stack
+
+- React
+- JavaScript
+- HTML
+- CSS
+
+---
+
+## How to Run
+
+1. Clone the repo
+
+```bash
+git clone git@github.com:KloudKitsune/Inventory_System.git
+```
+
+## Live Site
+
+https://kloudkitsune.github.io/Inventory_System/
+
+## Project Pitch Video
+
+Check out my Inventory system.
+
+https://drive.google.com/file/d/1fjBjjcGNib6wjoCLJETnT6_mNOM0oX5w/view?usp=drive_link
+
+where I describe my project and some challenges that I faced while building it.

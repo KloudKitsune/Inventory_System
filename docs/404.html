@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Redirecting...</title>
+  <script>
+    const pathSegments = window.location.pathname.split('/').filter(Boolean);
+    const basePath = pathSegments.length > 0 && pathSegments[0] === 'Inventory_System' ? '/Inventory_System' : '';
+    sessionStorage.redirect = basePath + window.location.pathname.slice(pathSegments.length > 0 && pathSegments[0] === 'Inventory_System' ? '/Inventory_System'.length : 0) + window.location.search + window.location.hash;
+    window.location.replace(basePath + '/index.html');
+  </script>
+</head>
+<body>
+</body>
+</html>
