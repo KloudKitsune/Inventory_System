@@ -35,3 +35,11 @@ git clone git@github.com:KloudKitsune/Inventory_System.git
 ## Live Site
 
 https://kloudkitsune.github.io/Inventory_System/
+
+## Project Pitch Video
+
+Check out my Inventory system.
+
+https://drive.google.com/file/d/1fjBjjcGNib6wjoCLJETnT6_mNOM0oX5w/view?usp=drive_link
+
+where I describe my project and some challenges that I faced while building it.
